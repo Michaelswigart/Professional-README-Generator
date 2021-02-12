@@ -3,22 +3,30 @@ var inquirer = require('inquirer');
 const fs = require('fs');
 const { right } = require('inquirer/lib/utils/readline');
 
-const questions = [{
+// TODO: Create an array of questions for user input
+  
+const questions = [
+  // project title
+  {
     type: 'input',
     name: 'name',
-    message: 'enter the name and title of the app',
+    message: 'Please enter a name and title for the app (Required)',
+    //add validation to make sure user entered the input
     validate:(nameInput) =>{
         if(nameInput){
             return true;
         } else {
-            console.log("please enter a name")
+            console.log("please enter a name and title")
             return false;
         }
     }
-  },{
+  },
+  // project description 
+  {
     type: 'input',
     name: 'description',
-    message: 'enter a description for your app',
+    message: 'Please enter a description about your project',
+    //add validation to make sure user entered the input
     validate:(descriptionInput) =>{
         if(descriptionInput){
             return true;
@@ -27,24 +35,112 @@ const questions = [{
             return false;
         }
     }
-  },{
+  },
+  // project installation 
+  {
+    type: 'input',
+    name: 'installation',
+    message: 'Please give instruction for project: (Required)',
+      //add validation to make sure user entered the input
+     validate: (nameInput) => {
+      if(descriptionInput){
+        return true;
+      } else {
+        console.log('Please enter the necessary commands for installation');
+        return false;
+      }
+ 
+ 
+    },
+  },
+  // project usage
+  {
+    type: 'input',
+    name: 'usage',
+    message: 'Please provide the necessary instructions for the project:(Required)',
+    //add validation to make sure user entered the input
+    validate: installationCommands => {
+      if(installationCommands) {
+        return true;
+      } else {
+        console.log('Please enter the necessary commands for installation')
+      }
+    }
 
-  },];
-
+  },
+ // Project License
+ {
+  type: 'list',
+  name: 'license',
+  message: "Please choose the license for the project:",
+  // Resource: https://choosealicense.com/licenses/
+  choices: [
+      "GNU GPLv3",
+      "Mozilla Public License 2.0",
+      "Apache License 2.0",
+      "MIT License",
+      "Boost Software License 1.0",
+      "The Unlicense",
+      "BSD 3-Clause"
+  ]
+},
+// Project Contributing
+{
+  type: 'input',
+  name: 'contributing',
+  message: "How can one contribute to the project?:(optional)"
+  // No validation for optional inputs
   
-// TODO: Create an array of questions for user input
-
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-     fs.writeFile("./dist/README.md",`# ${answers.name}`)
+},
+// Project Tests
+{
+  type: 'input',
+  name: 'tests',
+  message: "Mention any tests written to test the project:(optional)"
+  // No validation for optional inputs
+},
+ // github username
+ {
+  type: 'input',
+  name: 'username',
+  message: "Enter your github username:[Required]",
+  validate: username => {
+      if (username) {
+          return true;
+      } else {
+          console.log('Please enter the github username');
+          return false;
+      }
+  }
+},
+ // email
+{
+  type: 'input',
+  name: 'email',
+  message: "Enter your email address:[Required]",
+  validate: email => {
+      if (email) {
+          return true;
+      } else {
+          console.log('Please enter the email address');
+          return false;
+      }
+  }
 }
+];
 
-// TODO: Create a function to initialize app
+// Time said use file name.  fs.writefile
+// TODO: Create a function to write README file
+function writeToFile(fileName) {
+    return fs.writeFile("./dist/README.md",`# ${fileName.name}`)
+}
+// Tim said to work on the functon init from line 41 to 55
+// TODO: Create a function to initialize app work in .then
 function init() {inquirer
     .prompt(questions)
   
     .then(answers => {answers.name, answers.description
-     var README = writeToFile(answers)
+      writeToFile(answers)
     })
     .catch(error => {
       if(error.isTtyError) {
@@ -56,3 +152,8 @@ function init() {inquirer
 
 // Function call to initialize app
 init();
+
+// Terminal will freez locate break point 
+
+// fs.writeFile('dist', README, (err)=>
+// err ? console.log(err) : console.log('Successfully created Professional README Generator!'));
