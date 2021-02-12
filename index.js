@@ -2,6 +2,7 @@
 var inquirer = require('inquirer');
 const fs = require('fs');
 const { right } = require('inquirer/lib/utils/readline');
+const generateMarkdown = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
   
@@ -42,8 +43,8 @@ const questions = [
     name: 'installation',
     message: 'Please give instruction for project: (Required)',
       //add validation to make sure user entered the input
-     validate: (nameInput) => {
-      if(descriptionInput){
+     validate: (installationInput) => {
+      if(installationInput){
         return true;
       } else {
         console.log('Please enter the necessary commands for installation');
@@ -125,22 +126,27 @@ const questions = [
           console.log('Please enter the email address');
           return false;
       }
-  }
-}
-];
+    }
+  }];
 
 // Time said use file name.  fs.writefile
 // TODO: Create a function to write README file
 function writeToFile(fileName) {
-    return fs.writeFile("./dist/README.md",`# ${fileName.name}`)
+    return fs.writeFile("./dist/README.md",`# ${fileName.name}`) 
+    if(err) {
+      return console.log(err);
+    }
 }
-// Tim said to work on the functon init from line 41 to 55
-// TODO: Create a function to initialize app work in .then
-function init() {inquirer
+// Tim said to work on the functon init
+// TODO: Create a function to initialize app
+function init() {
+  console.log("Welcome please answer the question in the prompt");
+     inquirer
     .prompt(questions)
-  
-    .then(answers => {answers.name, answers.description
-      writeToFile(answers)
+    .then(answers => {
+      const readmeContent = generateMarkdown(answers);
+      answers.name, answers.description, answers.installation, answers.usage, answers.license, answers.contributing, answers.tests, answers.username, answers.email
+      writeToFile("./dist/README.md", readmeContent);
     })
     .catch(error => {
       if(error.isTtyError) {
@@ -152,8 +158,3 @@ function init() {inquirer
 
 // Function call to initialize app
 init();
-
-// Terminal will freez locate break point 
-
-// fs.writeFile('dist', README, (err)=>
-// err ? console.log(err) : console.log('Successfully created Professional README Generator!'));
