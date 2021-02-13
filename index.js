@@ -10,7 +10,7 @@ const questions = [
   // project title
   {
     type: 'input',
-    name: 'name',
+    name: 'title',
     message: 'Please enter a name and title for the app (Required)',
     //add validation to make sure user entered the input
     validate:(nameInput) =>{
@@ -132,10 +132,17 @@ const questions = [
 // Time said use file name.  fs.writefile
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-     fs.writeFile("./dist/README.md",`# ${fileName.name}`) 
-    if (err) {
-      return console.log(err);
-    }
+  console.log(data);
+
+  fs.writeFile(fileName, data, function (err) {
+    if (err) throw err;
+    console.log('Saved!');
+  });
+  
+    //  fs.writeFile(fileName, 'data', (err) ? console.error(err) : console.log(1));
+    // if (err) {
+    //   return console.log(err);
+    // }
 }
 // Tim said to work on the functon init
 // TODO: Create a function to initialize app
@@ -145,7 +152,8 @@ function init() {
     .prompt(questions)
     .then(answers => {
       const readmeContent = generateMarkdown(answers);
-      answers.name, answers.description, answers.installation, answers.usage, answers.license, answers.contributing, answers.tests, answers.username, answers.email
+      //console.log(readmeContent);
+      //answers.name, answers.description, answers.installation, answers.usage, answers.license, answers.contributing, answers.tests, answers.username, answers.email
       writeToFile("./dist/README.md", readmeContent);
     })
     .catch(error => {
