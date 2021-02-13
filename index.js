@@ -131,9 +131,9 @@ const questions = [
 
 // Time said use file name.  fs.writefile
 // TODO: Create a function to write README file
-function writeToFile(fileName) {
-    return fs.writeFile("./dist/README.md",`# ${fileName.name}`) 
-    if(err) {
+function writeToFile(fileName, data) {
+     fs.writeFile("./dist/README.md",`# ${fileName.name}`) 
+    if (err) {
       return console.log(err);
     }
 }

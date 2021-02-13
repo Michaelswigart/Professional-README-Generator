@@ -65,8 +65,8 @@ return `${renderLicenseBadge(data.license)}`
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
 // badge of the license
-return `
-${renderLicenseBadge(data.license)}
+   return `
+  ${renderLicenseBadge(data.license)}
 #  Project Title
    ${data.title}
   
@@ -86,8 +86,8 @@ To install dependencies, run the below command :
 ## Usage
    ${data.usage}
 ## License
-This repository is covered under the license '${renderLicenseSection(data.license)}' 
-Refer ${renderLicenseLink(data.license)} for more detailed info 
+  This repository is covered under the license '${renderLicenseSection(data.license)}' 
+  Refer ${renderLicenseLink(data.license)} for more detailed info 
   
 
 ## Contribution
@@ -95,11 +95,11 @@ Refer ${renderLicenseLink(data.license)} for more detailed info
 ## Tests
    ${data.tests}
 ## Questions
-If you have any questions reach me @ 
-Email: [archana.nagaraj@gmail.com](mailto:${data.email})
-Github : [archana-nagaraj](https://github.com/${data.username})
+ If you have any questions reach me @ 
+ Email : [sherlockholmes.swigart92@gmail.com](mailto:${data.email})
+ Github : [Michaelswigart](https://github.com/${data.email})
 `;
-} 
+}
 
 
 module.exports = generateMarkdown;
