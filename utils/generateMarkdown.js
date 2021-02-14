@@ -2,23 +2,23 @@
 const lincenseInfoList = [
   {
     name: 'GNU GPLv3',
-    badge: "",
-    link: ""
+    badge: "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)]",
+    link: "(https://www.gnu.org/licenses/gpl-3.0)"
   },
   {
     name: 'Mozilla Public License 2.0',
-    badge: "",
-    link: ""
+    badge: "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)]",
+    link: "(https://opensource.org/licenses/MPL-2.0)"
   },
   {
     name: 'Apache License 2.0',
-    badge: "",
-    link: ""
+    badge: "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)]",
+    link: "(https://opensource.org/licenses/Apache-2.0)"
   },
   {
     name: 'MIT License',
-    badge: "",
-    link: ""
+    badge: "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]",
+    link: "(https://opensource.org/licenses/MIT)"
   },
   {
     name: 'Boost Software License 1.0',
@@ -67,9 +67,18 @@ const lincenseInfoList = [
   
   // Created a function to generate markdown for README
   function generateMarkdown(data) {
+    if(data.license === "GNU GPLv3"){
+      data.license = "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)"
+    } else if(data.license === "Mozilla Public License 2.0"){
+      data.license = "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)"
+    }else if(data.license === "Apache License 2.0"){
+      data.license = "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)"
+    }else if(data.license === "MIT License"){
+      data.license = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"
+    }
   // badge of the license
      return `
-    ${renderLicenseBadge(data.license)}
+    
   #  Project Title
      ${data.title}
     
@@ -89,8 +98,9 @@ const lincenseInfoList = [
   ## Usage
      ${data.usage}
   ## License
-    This repository is covered under the license '${renderLicenseSection(data.license)}' 
-    Refer ${renderLicenseLink(data.license)} for more detailed info 
+    This repository is covered under the license '${data.license}' 
+    Refer ${data.license} for more detailed info 
+    ${data.license}
     
   
   ## Contribution
