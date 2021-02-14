@@ -1,10 +1,10 @@
 
     
   #  Project Title
-     j
+     f
     
   ##  Description
-    j
+    f
   ## Table of Contents
   * [Description](#description)
   * [Usage](#usage)
@@ -15,20 +15,20 @@
   * [Questions](#questions)
   ## Installation
   To install dependencies, run the below command :
-    j
+    f
   ## Usage
-     j
+     f
   ## License
-    This repository is covered under the license 'Mozilla Public License 2.0' 
+    This repository is covered under the license 'MIT License' 
     Refer  for more detailed info 
     
   
   ## Contribution
-     j
+     
   ## Tests
-     j
+     
   ## Questions
    If you have any questions reach me @ 
-   Email : [sherlockholmes.swigart92@gmail.com](mailto:j)
-   Github : [Michaelswigart](https://github.com/j)
+   Email : [sherlockholmes.swigart92@gmail.com](mailto:f)
+   Github : [Michaelswigart](https://github.com/f)
   

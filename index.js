@@ -1,30 +1,28 @@
 // TODO: Include packages needed for this application
-var inquirer = require('inquirer');
-const fs = require('fs');
-const { right } = require('inquirer/lib/utils/readline');
-const generateMarkdown = require('./utils/generateMarkdown');
-
-// TODO: Create an array of questions for user input
-  
-const questions = [
+ var inquirer = require('inquirer');
+ const fs = require('fs');
+ const { right } = require('inquirer/lib/utils/readline');
+ const generateMarkdown = require('./utils/generateMarkdown');
+// Created an array of questions for user input  
+ const questions = [
   // project title
-  {
-    type: 'input',
-    name: 'title',
-    message: 'Please enter a name and title for the app (Required)',
-    //add validation to make sure user entered the input
-    validate:(nameInput) =>{
+   {
+     type: 'input',
+     name: 'title',
+     message: 'Please enter a name and title for the app (Required)',
+     //add validation to make sure user entered the input
+     validate:(nameInput) =>{
         if(nameInput){
             return true;
         } else {
             console.log("please enter a name and title")
             return false;
-        }
+       }
     }
   },
   // project description 
   {
-    type: 'input',
+   type: 'input',
     name: 'description',
     message: 'Please enter a description about your project',
     //add validation to make sure user entered the input
@@ -67,7 +65,6 @@ const questions = [
         console.log('Please enter the necessary commands for installation')
       }
     }
-
   },
  // Project License
  {
@@ -91,7 +88,6 @@ const questions = [
   name: 'contributing',
   message: "How can one contribute to the project?:(optional)"
   // No validation for optional inputs
-  
 },
 // Project Tests
 {
@@ -128,32 +124,22 @@ const questions = [
       }
     }
   }];
-
-// Time said use file name.  fs.writefile
-// TODO: Create a function to write README file
+  // function write to README.md file
 function writeToFile(fileName, data) {
   console.log(data);
 
   fs.writeFile(fileName, data, function (err) {
     if (err) throw err;
-    console.log('Saved!');
+    console.log('Saved!');  
   });
-  
-    //  fs.writeFile(fileName, 'data', (err) ? console.error(err) : console.log(1));
-    // if (err) {
-    //   return console.log(err);
-    // }
 }
-// Tim said to work on the functon init
-// TODO: Create a function to initialize app
+ // A function to initialize app
 function init() {
   console.log("Welcome please answer the question in the prompt");
      inquirer
     .prompt(questions)
     .then(answers => {
       const readmeContent = generateMarkdown(answers);
-      //console.log(readmeContent);
-      //answers.name, answers.description, answers.installation, answers.usage, answers.license, answers.contributing, answers.tests, answers.username, answers.email
       writeToFile("./dist/README.md", readmeContent);
     })
     .catch(error => {
@@ -163,6 +149,5 @@ function init() {
         // Something else when wrong
       }
     });}
-
 // Function call to initialize app
 init();
