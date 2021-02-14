@@ -1,10 +1,10 @@
 
     
   #  Project Title
-     f
+     readme generator
     
   ##  Description
-    f
+    readme
   ## Table of Contents
   * [Description](#description)
   * [Usage](#usage)
@@ -15,21 +15,21 @@
   * [Questions](#questions)
   ## Installation
   To install dependencies, run the below command :
-    f
+    good code only
   ## Usage
-     f
+     to work
   ## License
-    This repository is covered under the license '[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)' 
-    Refer [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) for more detailed info 
-    [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+    This repository is covered under the license '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)' 
+    Refer [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) for more detailed info 
+    [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
     
   
   ## Contribution
-     f
+     n/a
   ## Tests
-     f
+     n/a
   ## Questions
    If you have any questions reach me @ 
-   Email : [sherlockholmes.swigart92@gmail.com](mailto:f)
-   Github : [Michaelswigart](https://github.com/f)
+   Email : [sherlockholmes.swigart92@gmail.com](mailto:sherlockholmes.swigart92@gmail.com)
+   Github : [Michaelswigart](https://github.com/sherlockholmes.swigart92@gmail.com)
   
